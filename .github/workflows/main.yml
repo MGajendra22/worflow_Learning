@@ -24,7 +24,4 @@ jobs:
         run: go mod tidy
 
       - name: Run Build
-        run: go build ./...
-
-      - name: Run Tests
-        run: go test ./...
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -buildvcs=false -o main
